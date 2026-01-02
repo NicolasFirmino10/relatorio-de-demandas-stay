@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+try:
+    import plotly.express as px
+except ImportError:
+    st.error("Plotly não está instalado. Execute: pip install plotly")
+    st.stop()
 from utils import converter_csv, converter_excel, mensagem_sucesso
 
 st.set_page_config(layout='wide', page_title='Atendimentos dos Agentes')
