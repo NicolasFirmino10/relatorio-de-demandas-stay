@@ -2,11 +2,25 @@ import streamlit as st
 import pandas as pd
 from dataset import df, analise_solicitacao, analise_categoria, top_clientes
 
-st.set_page_config(layout='wide', page_title='Análise de Demandas')
-st.title("Análise de Recorrência de Demandas")
+st.set_page_config(layout='wide', page_title='Análise Stay - Dashboard')
+
+# Sidebar para navegação
+st.sidebar.title("📊 Análise Stay")
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 🏠 Página Principal")
+st.sidebar.info("Esta é a página principal com dados pré-carregados")
+st.sidebar.markdown("### 📄 Outras Páginas")
+st.sidebar.markdown("- 📊 Recorrência de Demandas")
+st.sidebar.markdown("- 👥 Entradas e Saídas")
+st.sidebar.markdown("- 🎧 Atendimentos dos Agentes")
+st.sidebar.markdown("---")
+st.sidebar.markdown("💡 **Dica:** Use as páginas acima para fazer upload de seus próprios arquivos!")
+
+st.title("🏠 Dashboard Principal - Análise de Recorrência de Demandas")
+st.markdown("*Dados pré-carregados do sistema*")
 
 # Métricas principais
-st.subheader("Métricas Gerais")
+st.subheader("📈 Métricas Gerais")
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -52,3 +66,12 @@ with aba3:
 with aba4:
     st.subheader("Dados Completos")
     st.dataframe(df)
+
+# Rodapé
+st.markdown("---")
+st.markdown("### 🚀 Próximos Passos")
+st.info("""Para análises personalizadas com seus próprios dados, acesse as páginas específicas:
+- **Recorrência de Demandas**: Upload de arquivos de demandas personalizados
+- **Entradas e Saídas**: Análise de movimentação de funcionários
+- **Atendimentos dos Agentes**: Performance e métricas de atendimento
+""")
